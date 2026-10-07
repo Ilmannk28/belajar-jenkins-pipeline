@@ -12,6 +12,26 @@ pipeline {
             echo ("Hello World")
             }
         }
+
+         stage("build"){
+             steps{
+                echo("Start build")
+                sh("./mvmw clean compile test-compile")
+                echo("End build")
+            }
+        } 
+        stage("test"){
+            steps{
+                echo("Start test")
+                sh("./mvmw clean compile test-compile")
+                echo("End test")
+            }
+        }
+        stage("deploy"){
+            steps{
+                echo("ini test")
+            }
+        }
     }
 
     post{
